@@ -38,7 +38,7 @@ namespace Loja_De_Roupas
 
             sqlCommand.Connection = connection.ReturnConnection();
             sqlCommand.CommandText = @"INSERT INTO Usuario VALUES
-                (@ID, @Nome, @Prontuario, @Telefone, @CPF, @Senha)";
+                (@Nome, @Prontuario, @Telefone, @CPF, @Senha)";
 
             sqlCommand.Parameters.AddWithValue("@Nome", txbName.Text);
             sqlCommand.Parameters.AddWithValue("@Prontuario", txbPront.Text);
