@@ -40,11 +40,11 @@ namespace Loja_De_Roupas
             sqlCommand.CommandText = @"INSERT INTO Usuario VALUES
                 (@ID, @Nome, @Prontuario, @Telefone, @CPF, @Senha)";
 
-            sqlCommand.Parameters.AddWithValue("@colunadatabela", txbName.Text);
-            sqlCommand.Parameters.AddWithValue("@colunadatabela", txbPront.Text);
-            sqlCommand.Parameters.AddWithValue("@colunadatabela", mtxbPhone.Text);
-            sqlCommand.Parameters.AddWithValue("@colunadatabela", mtxbCPF.Text);
-            sqlCommand.Parameters.AddWithValue("@colunadatabela", txbPass.Text);
+            sqlCommand.Parameters.AddWithValue("@Nome", txbName.Text);
+            sqlCommand.Parameters.AddWithValue("@Prontuario", txbPront.Text);
+            sqlCommand.Parameters.AddWithValue("@Telefone", mtxbPhone.Text);
+            sqlCommand.Parameters.AddWithValue("@CPF", mtxbCPF.Text);
+            sqlCommand.Parameters.AddWithValue("@Senha", txbPass.Text);
 
             sqlCommand.ExecuteNonQuery();
         }
