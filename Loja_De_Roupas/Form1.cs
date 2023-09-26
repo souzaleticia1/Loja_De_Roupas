@@ -141,10 +141,10 @@ namespace Loja_De_Roupas
                 MessageBoxIcon.Information);
 
             txbName.Clear();
-            txbEnrollment.Clear();
-            txbTelephone.Clear();
-            mtbCpf.Clear();
-            txbPassword.Clear();
+            txbPront.Clear();
+            mtxbPhone.Clear();
+            mtxbCPF.Clear();
+            txbPass.Clear();
 
             UpdateListView();
         }
