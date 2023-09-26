@@ -44,6 +44,13 @@
             this.mtxbPhone = new System.Windows.Forms.MaskedTextBox();
             this.mtxbCPF = new System.Windows.Forms.MaskedTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ListView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl1
@@ -183,12 +190,62 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // ListView1
+            // 
+            this.ListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.ListView1.FullRowSelect = true;
+            this.ListView1.HideSelection = false;
+            this.ListView1.Location = new System.Drawing.Point(170, 344);
+            this.ListView1.Name = "ListView1";
+            this.ListView1.Size = new System.Drawing.Size(529, 97);
+            this.ListView1.TabIndex = 9;
+            this.ListView1.UseCompatibleStateImageBehavior = false;
+            this.ListView1.View = System.Windows.Forms.View.Details;
+            this.ListView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView1_MouseDoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Prontuario";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Telefone";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "CPF";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Senha";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(440, 276);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 30);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Editar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(794, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ListView1);
             this.Controls.Add(this.mtxbCPF);
             this.Controls.Add(this.mtxbPhone);
             this.Controls.Add(this.txbPront);
@@ -228,6 +285,13 @@
         private System.Windows.Forms.MaskedTextBox mtxbPhone;
         private System.Windows.Forms.MaskedTextBox mtxbCPF;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ListView ListView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button button1;
     }
 }
 
