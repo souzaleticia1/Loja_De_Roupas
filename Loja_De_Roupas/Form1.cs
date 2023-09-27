@@ -43,7 +43,7 @@ namespace Loja_De_Roupas
                     string job = (string)dr["Prontuario"];
                     decimal tel = (decimal)dr["Telefone"];
                     decimal cpf = (decimal)dr["CPF"];
-                    string pass = (string)dr["Senha"];
+                    string pass = (string)dr["senha"];
 
                     ListViewItem lv = new ListViewItem(id.ToString());
                     lv.SubItems.Add(name);
@@ -84,13 +84,13 @@ namespace Loja_De_Roupas
 
             sqlCommand.Connection = connection.ReturnConnection();
             sqlCommand.CommandText = @"INSERT INTO Usuario VALUES
-                (@Nome, @Prontuario, @Telefone, @CPF, @Senha)";
+                (@Nome, @Prontuario, @Telefone, @CPF, @senha)";
 
             sqlCommand.Parameters.AddWithValue("@Nome", txbName.Text);
             sqlCommand.Parameters.AddWithValue("@Prontuario", txbPront.Text);
             sqlCommand.Parameters.AddWithValue("@Telefone", mtxbPhone.Text);
             sqlCommand.Parameters.AddWithValue("@CPF", mtxbCPF.Text);
-            sqlCommand.Parameters.AddWithValue("@Senha", txbPass.Text);
+            sqlCommand.Parameters.AddWithValue("@senha", txbPass.Text);
 
             sqlCommand.ExecuteNonQuery();
             txbName.Clear();
@@ -123,19 +123,19 @@ namespace Loja_De_Roupas
     Prontuario = @Prontuario,
     CPF        = @CPF, 
     Telefone  = @Telefone, 
-    Senha   = @Senha, 
-    WHERE Id   = @id";
+    senha   = @Senha
+    WHERE ID   = @id";
 
             sqlCommand.Parameters.AddWithValue("@Nome", txbName.Text);
             sqlCommand.Parameters.AddWithValue("@Prontuario", txbPront.Text);
             sqlCommand.Parameters.AddWithValue("@Telefone", mtxbPhone.Text);
             sqlCommand.Parameters.AddWithValue("@CPF", mtxbCPF.Text);
-            sqlCommand.Parameters.AddWithValue("@Senha", txbPass.Text);
+            sqlCommand.Parameters.AddWithValue("@senha", txbPass.Text);
             sqlCommand.Parameters.AddWithValue("@id", id);
 
             sqlCommand.ExecuteNonQuery();
 
-            MessageBox.Show("Cadastrado com sucesso",
+            MessageBox.Show("Atualizado com sucesso",
                 "AVISO",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -147,6 +147,29 @@ namespace Loja_De_Roupas
             txbPass.Clear();
 
             UpdateListView();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            Connection connection = new Connection();
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = connection.ReturnConnection();
+            sqlCommand.CommandText = @"DELETE FROM Usuarios WHERE Id = @id";
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            try
+            {
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
+            }
+            finally
+            {
+                connection.CloseConnection();
+            }
         }
 
 
