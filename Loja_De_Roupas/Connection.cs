@@ -12,7 +12,7 @@ namespace Loja_De_Roupas
     {
         //Propriedades ou atributos
         private readonly SqlConnection con;
-        private readonly string DataBase = "Loja_De_Roupas";
+        private readonly string DataBase = "Loja_De_Roupas_";
 
         //Construtor
         public Connection()                            //LAPTOP-9TN8R1CF\SQLEXPRESS
