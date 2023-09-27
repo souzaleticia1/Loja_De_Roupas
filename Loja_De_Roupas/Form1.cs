@@ -156,7 +156,7 @@ namespace Loja_De_Roupas
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM Usuarios WHERE Id = @id";
+            sqlCommand.CommandText = @"DELETE FROM Usuario WHERE Id = @id";
             sqlCommand.Parameters.AddWithValue("@id", id);
             try
             {
