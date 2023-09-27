@@ -93,11 +93,19 @@ namespace Loja_De_Roupas
             sqlCommand.Parameters.AddWithValue("@senha", txbPass.Text);
 
             sqlCommand.ExecuteNonQuery();
+
+            MessageBox.Show("Salvo com sucesso",
+                "AVISO",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
             txbName.Clear();
             txbPront.Clear();
             mtxbPhone.Clear();
             mtxbCPF.Clear();
             txbPass.Clear();
+
+            UpdateListView();
         }
 
         private void ListView1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -170,6 +178,19 @@ namespace Loja_De_Roupas
             {
                 connection.CloseConnection();
             }
+
+            MessageBox.Show("Excluído com sucesso",
+                "AVISO",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            txbName.Clear();
+            txbPront.Clear();
+            mtxbPhone.Clear();
+            mtxbCPF.Clear();
+            txbPass.Clear();
+
+            UpdateListView();
         }
 
 
