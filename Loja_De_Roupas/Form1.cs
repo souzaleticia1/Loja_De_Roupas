@@ -159,37 +159,23 @@ namespace Loja_De_Roupas
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            Connection connection = new Connection();
-            SqlCommand sqlCommand = new SqlCommand();
-
-            sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM Usuario WHERE Id = @id";
-            sqlCommand.Parameters.AddWithValue("@id", id);
-            try
-            {
-                sqlCommand.ExecuteNonQuery();
-            }
-            catch (Exception err)
-            {
-                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
-            }
-            finally
-            {
-                connection.CloseConnection();
-            }
+            //chamando o método de exclusão  ---->  //cria o objeto e chama o método específico
+            UsuarioDAO usuarioDAO = new UsuarioDAO();     //UsuarioDAO nomeDoObj = new UsuarioDAO();
+            usuarioDAO.DeleteUser(id);
 
             MessageBox.Show("Excluído com sucesso",
                 "AVISO",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
+            //limpando campos
             txbName.Clear();
             txbPront.Clear();
             mtxbPhone.Clear();
             mtxbCPF.Clear();
             txbPass.Clear();
 
+            //atualizando ListView
             UpdateListView();
         }
 
