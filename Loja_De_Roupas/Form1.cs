@@ -24,45 +24,26 @@ namespace Loja_De_Roupas
         private void UpdateListView()
         {
             ListView1.Items.Clear();
-
-            Connection conn = new Connection();
-            SqlCommand sqlCom = new SqlCommand();
-
-            sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT * FROM Usuario";
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            List<Usuario> users = usuarioDAO.SelectUser();
 
             try
             {
-                SqlDataReader dr = sqlCom.ExecuteReader();
-
-                //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
-                while (dr.Read())
+                //foreach vai percorrer cada linha de usuario
+                foreach (Usuario usuario in users)
                 {
-                    int id = (int)dr["ID"];
-                    string name = (string)dr["Nome"];
-                    string job = (string)dr["Prontuario"];
-                    decimal tel = (decimal)dr["Telefone"];
-                    decimal cpf = (decimal)dr["CPF"];
-                    string pass = (string)dr["senha"];
-
                     ListViewItem lv = new ListViewItem(id.ToString());
-                    lv.SubItems.Add(name);
-                    lv.SubItems.Add(job);
-                    lv.SubItems.Add(tel.ToString());
-                    lv.SubItems.Add(cpf.ToString());
-                    lv.SubItems.Add(pass);
+                    lv.SubItems.Add(usuario.Nome);
+                    lv.SubItems.Add(usuario.Prontuario);
+                    lv.SubItems.Add(usuario.Telefone.ToString());
+                    lv.SubItems.Add(usuario.Cpf.ToString());
+                    lv.SubItems.Add(usuario.Senha);
                     ListView1.Items.Add(lv);
-
                 }
-                dr.Close();
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
-            }
-            finally
-            {
-                conn.CloseConnection();
             }
         }
 
@@ -79,25 +60,33 @@ namespace Loja_De_Roupas
         private void btn1_Click(object sender, EventArgs e)
         {
 
-            Connection connection = new Connection();
-            SqlCommand sqlCommand = new SqlCommand();
+            //ver classe usuario //(3.2)
+            try
+            {
+                //criar um objeto da classe Usuario
+                //esse Usuario verde água é o nome da sua classe
+                Usuario user = new Usuario(
+                                        txbName.Text,
+                                        txbPront.Text,
+                                        mtxbPhone.Text,
+                                        mtxbCPF.Text,
+                                        txbPass.Text);
 
-            sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"INSERT INTO Usuario VALUES
-                (@Nome, @Prontuario, @Telefone, @CPF, @senha)";
+                //chamando o método de inserção  ---->  //cria o objeto e chama o método específico
+                UsuarioDAO usuarioDAO = new UsuarioDAO();     //UsuarioDAO nomeDoObj = new UsuarioDAO();
+                usuarioDAO.InsertUser(user);
 
-            sqlCommand.Parameters.AddWithValue("@Nome", txbName.Text);
-            sqlCommand.Parameters.AddWithValue("@Prontuario", txbPront.Text);
-            sqlCommand.Parameters.AddWithValue("@Telefone", mtxbPhone.Text);
-            sqlCommand.Parameters.AddWithValue("@CPF", mtxbCPF.Text);
-            sqlCommand.Parameters.AddWithValue("@senha", txbPass.Text);
+                MessageBox.Show("Salvo com sucesso",
+                    "AVISO",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
 
-            sqlCommand.ExecuteNonQuery();
-
-            MessageBox.Show("Salvo com sucesso",
-                "AVISO",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            
 
             txbName.Clear();
             txbPront.Clear();
@@ -127,12 +116,12 @@ namespace Loja_De_Roupas
 
             sqlCommand.Connection = connection.ReturnConnection();
             sqlCommand.CommandText = @"UPDATE Usuario SET 
-    Nome       = @Nome, 
-    Prontuario = @Prontuario,
-    CPF        = @CPF, 
-    Telefone  = @Telefone, 
-    senha   = @Senha
-    WHERE ID   = @id";
+            Nome       = @Nome, 
+            Prontuario = @Prontuario,
+            CPF        = @CPF, 
+            Telefone  = @Telefone, 
+            senha   = @Senha
+            WHERE ID   = @id";
 
             sqlCommand.Parameters.AddWithValue("@Nome", txbName.Text);
             sqlCommand.Parameters.AddWithValue("@Prontuario", txbPront.Text);

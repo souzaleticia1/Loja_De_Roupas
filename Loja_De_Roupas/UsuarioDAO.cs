@@ -4,6 +4,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Loja_De_Roupas
 {
@@ -14,6 +17,65 @@ namespace Loja_De_Roupas
         //quando um método não tem retorno ele é do tipo void. Ele não precisa retornar nada, ele só vai executar a ação e acabou.
 
         //() do método é chamado de parâmetro. quando tem que declarar algo, é nele que faz
+
+        public List<Usuario> SelectUser()
+        {
+            Connection conn = new Connection();
+            SqlCommand sqlCom = new SqlCommand();
+
+            sqlCom.Connection = conn.ReturnConnection();
+            sqlCom.CommandText = "SELECT * FROM Usuario";
+
+            List<Usuario> users = new List<Usuario>();
+            try
+            {
+                SqlDataReader dr = sqlCom.ExecuteReader();
+
+                //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
+                while (dr.Read())
+                {
+                    Usuario objeto = new Usuario(
+                        (int)dr["ID"],
+                        (string)dr["Nome"],
+                        (string)dr["Prontuario"],
+                        (string)dr["Telefone"],
+                        (string)dr["CPF"],
+                        (string)dr["senha"]
+                    );
+
+                    users.Add(objeto);
+                }
+                dr.Close();
+                return users;//retornar a lista
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+            return null;
+        }
+        public void InsertUser(Usuario user)
+        {
+            Connection connection = new Connection();
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = connection.ReturnConnection();
+            sqlCommand.CommandText = @"INSERT INTO Usuario VALUES
+                (@Nome, @Prontuario, @Telefone, @CPF, @senha)"
+            ;
+
+            sqlCommand.Parameters.AddWithValue("@Nome", user.Nome);
+            sqlCommand.Parameters.AddWithValue("@Prontuario", user.Prontuario);
+            sqlCommand.Parameters.AddWithValue("@Telefone", user.Telefone);
+            sqlCommand.Parameters.AddWithValue("@CPF", user.Cpf);
+            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
+
+            sqlCommand.ExecuteNonQuery();
+        }
         public void DeleteUser(int id)
         {
             Connection connection = new Connection();
