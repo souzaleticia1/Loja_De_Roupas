@@ -68,8 +68,8 @@ namespace Loja_De_Roupas
                 Usuario user = new Usuario(
                                         txbName.Text,
                                         txbPront.Text,
-                                        mtxbPhone.Text,
-                                        mtxbCPF.Text,
+                                        Convert.ToDecimal(mtxbPhone.Text),
+                                        Convert.ToDecimal(mtxbCPF.Text),
                                         txbPass.Text);
 
                 //chamando o método de inserção  ---->  //cria o objeto e chama o método específico
@@ -111,31 +111,33 @@ namespace Loja_De_Roupas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Connection connection = new Connection();
-            SqlCommand sqlCommand = new SqlCommand();
 
-            sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"UPDATE Usuario SET 
-            Nome       = @Nome, 
-            Prontuario = @Prontuario,
-            CPF        = @CPF, 
-            Telefone  = @Telefone, 
-            senha   = @Senha
-            WHERE ID   = @id";
+            //ver classe usuario //(3.2)
+            try
+            {
+                //criar um objeto da classe Usuario
+                //esse Usuario verde água é o nome da sua classe
+                Usuario user = new Usuario(
+                                        id,
+                                        txbName.Text,
+                                        txbPront.Text,
+                                        Convert.ToDecimal(mtxbPhone.Text),
+                                        Convert.ToDecimal(mtxbCPF.Text),
+                                        txbPass.Text);
 
-            sqlCommand.Parameters.AddWithValue("@Nome", txbName.Text);
-            sqlCommand.Parameters.AddWithValue("@Prontuario", txbPront.Text);
-            sqlCommand.Parameters.AddWithValue("@Telefone", mtxbPhone.Text);
-            sqlCommand.Parameters.AddWithValue("@CPF", mtxbCPF.Text);
-            sqlCommand.Parameters.AddWithValue("@senha", txbPass.Text);
-            sqlCommand.Parameters.AddWithValue("@id", id);
+                //chamando o método de inserção  ---->  //cria o objeto e chama o método específico
+                UsuarioDAO usuarioDAO = new UsuarioDAO();     //UsuarioDAO nomeDoObj = new UsuarioDAO();
+                usuarioDAO.UpdateUser(user);
 
-            sqlCommand.ExecuteNonQuery();
-
-            MessageBox.Show("Atualizado com sucesso",
-                "AVISO",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                MessageBox.Show("Atualizado com sucesso",
+                    "AVISO",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
 
             txbName.Clear();
             txbPront.Clear();

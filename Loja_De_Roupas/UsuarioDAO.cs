@@ -38,8 +38,8 @@ namespace Loja_De_Roupas
                         (int)dr["ID"],
                         (string)dr["Nome"],
                         (string)dr["Prontuario"],
-                        (string)dr["Telefone"],
-                        (string)dr["CPF"],
+                        (decimal)dr["Telefone"],
+                        (decimal)dr["CPF"],
                         (string)dr["senha"]
                     );
 
@@ -68,6 +68,7 @@ namespace Loja_De_Roupas
                 (@Nome, @Prontuario, @Telefone, @CPF, @senha)"
             ;
 
+            
             sqlCommand.Parameters.AddWithValue("@Nome", user.Nome);
             sqlCommand.Parameters.AddWithValue("@Prontuario", user.Prontuario);
             sqlCommand.Parameters.AddWithValue("@Telefone", user.Telefone);
@@ -82,7 +83,7 @@ namespace Loja_De_Roupas
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM Usuario WHERE Id = @id";
+            sqlCommand.CommandText = @"DELETE FROM Usuario WHERE ID = @id";
             sqlCommand.Parameters.AddWithValue("@id", id);
             try
             {
@@ -97,5 +98,30 @@ namespace Loja_De_Roupas
                 connection.CloseConnection();
             }
         }
+        public void UpdateUser(Usuario user)
+        {
+            Connection connection = new Connection();
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = connection.ReturnConnection();
+            sqlCommand.CommandText = @"UPDATE Usuario SET 
+            Nome       = @Nome, 
+            Prontuario = @Prontuario,
+            CPF        = @CPF, 
+            Telefone  = @Telefone, 
+            senha   = @Senha
+            WHERE ID   = @id";
+
+            //idêntico ao do botão insert
+            sqlCommand.Parameters.AddWithValue("@ID", user.Id);
+            sqlCommand.Parameters.AddWithValue("@Nome", user.Nome);
+            sqlCommand.Parameters.AddWithValue("@Prontuario", user.Prontuario);
+            sqlCommand.Parameters.AddWithValue("@Telefone", user.Telefone);
+            sqlCommand.Parameters.AddWithValue("@CPF", user.Cpf);
+            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
     }
 }

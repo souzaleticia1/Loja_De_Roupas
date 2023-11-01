@@ -51,16 +51,16 @@ namespace Loja_De_Roupas
         private int  _id;
         private string  _nome;
         private string  _prontuario;
-        private string  _telefone;
-        private string  _cpf;
+        private decimal  _telefone;
+        private decimal  _cpf;
         private string  _senha;
 
 
         //(2)
         public Usuario(string nome,
                        string prontuario,
-                       string telefone,
-                       string cpf,
+                       decimal telefone,
+                       decimal cpf,
                        string senha){
 
            Nome = nome;
@@ -74,8 +74,8 @@ namespace Loja_De_Roupas
         public Usuario(int id,
                        string nome,
                        string prontuario,
-                       string telefone,
-                       string cpf,
+                       decimal telefone,
+                       decimal cpf,
                        string senha)
         {
             Id = id;
@@ -115,10 +115,10 @@ namespace Loja_De_Roupas
             get { return _prontuario; }
         }
 
-        public string Telefone
+        public decimal Telefone
         {
              set {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value.ToString()))
                     throw new ArgumentNullException("Campo Telefone está vazio!");
                 _telefone = value;
             
@@ -126,10 +126,10 @@ namespace Loja_De_Roupas
             get { return _telefone; }
         }
 
-        public string Cpf
+        public decimal Cpf
         {
              set {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value.ToString()))
                     throw new ArgumentNullException("Campo CPF está vazio!");
                 _cpf = value;
             
