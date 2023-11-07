@@ -32,7 +32,7 @@ namespace Loja_De_Roupas
                 //foreach vai percorrer cada linha de usuario
                 foreach (Usuario usuario in users)
                 {
-                    ListViewItem lv = new ListViewItem(id.ToString());
+                    ListViewItem lv = new ListViewItem(usuario.Id.ToString());
                     lv.SubItems.Add(usuario.Nome);
                     lv.SubItems.Add(usuario.Prontuario);
                     lv.SubItems.Add(usuario.Telefone.ToString());
