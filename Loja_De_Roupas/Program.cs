@@ -16,7 +16,11 @@ namespace Loja_De_Roupas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //na Program.cs ela chama o Form1.cs e tem que mudar isso para login
+            Application.Run(new Login());
+            //criar outro método para o usuarioDAO
+            //if(dr.HasRows)
+            //   retur true;
         }
     }
 }

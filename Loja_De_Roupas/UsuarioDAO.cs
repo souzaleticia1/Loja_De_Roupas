@@ -18,7 +18,40 @@ namespace Loja_De_Roupas
 
         //() do método é chamado de parâmetro. quando tem que declarar algo, é nele que faz
 
-        public List<Usuario> SelectUser()
+        //bool --> booleano (só da true e false)
+        public bool Login(Usuario user)
+        {
+            Connection conn = new Connection();
+            SqlCommand sqlCom = new SqlCommand();
+
+            sqlCom.Connection = conn.ReturnConnection();
+            sqlCom.CommandText = "SELECT * FROM Usuario where Nome = @Nome and senha = @senha";
+
+            sqlCom.Parameters.AddWithValue("@Nome", user.Nome);
+            sqlCom.Parameters.AddWithValue("@senha", user.Senha);
+
+            try
+            {
+                SqlDataReader dr = sqlCom.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+            return false;
+        }
+            public List<Usuario> SelectUser()
         {
             Connection conn = new Connection();
             SqlCommand sqlCom = new SqlCommand();

@@ -86,6 +86,15 @@ namespace Loja_De_Roupas
             Senha = senha;
         }
 
+        //(2)
+        public Usuario(string nome,
+                       string senha)
+        {
+
+            Nome = nome;
+            Senha = senha;
+        }
+
         //(3)
         public int Id
         {

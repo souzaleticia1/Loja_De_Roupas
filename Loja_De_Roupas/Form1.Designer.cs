@@ -48,9 +48,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lbl1
@@ -189,6 +189,7 @@
             this.ListView1.TabIndex = 9;
             this.ListView1.UseCompatibleStateImageBehavior = false;
             this.ListView1.View = System.Windows.Forms.View.Details;
+            this.ListView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             this.ListView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView1_MouseDoubleClick);
             // 
             // columnHeader1
@@ -211,6 +212,10 @@
             // 
             this.columnHeader5.Text = "CPF";
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Senha";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(440, 276);
@@ -230,10 +235,6 @@
             this.button2.Text = "Excluir";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Senha";
             // 
             // Form1
             // 
