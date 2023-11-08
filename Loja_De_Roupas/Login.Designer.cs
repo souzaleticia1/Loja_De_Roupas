@@ -38,9 +38,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(350, 263);
+            this.button1.Location = new System.Drawing.Point(350, 250);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(80, 28);
             this.button1.TabIndex = 0;
             this.button1.Text = "Entrar";
             this.button1.UseVisualStyleBackColor = true;
@@ -83,7 +83,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(300, 247);
+            this.linkLabel1.Location = new System.Drawing.Point(290, 230);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 13);
             this.linkLabel1.TabIndex = 5;
