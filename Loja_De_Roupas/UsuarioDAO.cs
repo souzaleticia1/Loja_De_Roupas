@@ -25,9 +25,9 @@ namespace Loja_De_Roupas
             SqlCommand sqlCom = new SqlCommand();
 
             sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT * FROM Usuario where Nome = @Nome and senha = @senha";
+            sqlCom.CommandText = "SELECT * FROM Usuario where CPF = @CPF and senha = @senha";
 
-            sqlCom.Parameters.AddWithValue("@Nome", user.Nome);
+            sqlCom.Parameters.AddWithValue("@CPF", user.Cpf);
             sqlCom.Parameters.AddWithValue("@senha", user.Senha);
 
             try

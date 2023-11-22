@@ -87,11 +87,11 @@ namespace Loja_De_Roupas
         }
 
         //(2)
-        public Usuario(string nome,
+        public Usuario(decimal cpf,
                        string senha)
         {
 
-            Nome = nome;
+            Cpf = cpf;
             Senha = senha;
         }
 
