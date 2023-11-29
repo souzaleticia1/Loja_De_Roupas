@@ -23,21 +23,23 @@ namespace Loja_De_Roupas
         {
             listView1.Items.Clear();
             EnderecoDAO enderecoDAO = new EnderecoDAO();
-            List<Endereco> adresses = enderecoDAO.SelectAddress();
+            List<Endereco> adresses = enderecoDAO.SelectAddress(); 
 
             try
             {
-                //foreach vai percorrer cada linha de usuario
-                foreach (Endereco endereco in adresses)
-                {
-                    ListViewItem lv = new ListViewItem(endereco.Id.ToString());
-                    lv.SubItems.Add(endereco.Cep.ToString());
-                    lv.SubItems.Add(endereco.Estado);
-                    lv.SubItems.Add(endereco.Cidade);
-                    lv.SubItems.Add(endereco.Bairro);
-                    lv.SubItems.Add(endereco.Rua);
-                    lv.SubItems.Add(endereco.Numero.ToString());
-                    listView1.Items.Add(lv);
+                if (adresses != null && adresses.Count > 0)
+                { //foreach vai percorrer cada linha de usuario
+                    foreach (Endereco endereco in adresses)
+                    {
+                        ListViewItem lv = new ListViewItem(endereco.Id.ToString());
+                        lv.SubItems.Add(endereco.Cep.ToString());
+                        lv.SubItems.Add(endereco.Estado);
+                        lv.SubItems.Add(endereco.Cidade);
+                        lv.SubItems.Add(endereco.Bairro);
+                        lv.SubItems.Add(endereco.Rua);
+                        lv.SubItems.Add(endereco.Numero.ToString());
+                        listView1.Items.Add(lv);
+                    }
                 }
             }
             catch (Exception err)
@@ -180,6 +182,11 @@ namespace Loja_De_Roupas
             txbBairro.Text = listView1.Items[index].SubItems[4].Text;
             txbRua.Text = listView1.Items[index].SubItems[5].Text;
             txbNumero.Text = listView1.Items[index].SubItems[6].Text;
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            UpdateListView();
         }
     }
 }
