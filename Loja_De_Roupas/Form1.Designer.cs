@@ -140,6 +140,7 @@
             this.txbPass.PasswordChar = '*';
             this.txbPass.Size = new System.Drawing.Size(241, 20);
             this.txbPass.TabIndex = 5;
+            this.txbPass.TextChanged += new System.EventHandler(this.txbPass_TextChanged);
             // 
             // txbPront
             // 

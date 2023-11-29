@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -106,7 +107,7 @@ namespace Loja_De_Roupas
             sqlCommand.Parameters.AddWithValue("@Prontuario", user.Prontuario);
             sqlCommand.Parameters.AddWithValue("@Telefone", user.Telefone);
             sqlCommand.Parameters.AddWithValue("@CPF", user.Cpf);
-            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
+            sqlCommand.Parameters.AddWithValue("@senha", Senha.Sha256(user.Senha));
 
             sqlCommand.ExecuteNonQuery();
         }
@@ -151,10 +152,9 @@ namespace Loja_De_Roupas
             sqlCommand.Parameters.AddWithValue("@Prontuario", user.Prontuario);
             sqlCommand.Parameters.AddWithValue("@Telefone", user.Telefone);
             sqlCommand.Parameters.AddWithValue("@CPF", user.Cpf);
-            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
+            sqlCommand.Parameters.AddWithValue("@senha", Senha.Sha256(user.Senha));
 
             sqlCommand.ExecuteNonQuery();
         }
-
     }
 }

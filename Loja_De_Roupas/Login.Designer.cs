@@ -54,6 +54,7 @@
             this.txbPassL.PasswordChar = '*';
             this.txbPassL.Size = new System.Drawing.Size(192, 20);
             this.txbPassL.TabIndex = 1;
+            this.txbPassL.TextChanged += new System.EventHandler(this.txbPassL_TextChanged);
             // 
             // label1
             // 

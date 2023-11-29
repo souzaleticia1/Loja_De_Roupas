@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Security.Cryptography;
 
 namespace Loja_De_Roupas
 {
@@ -173,6 +174,11 @@ namespace Loja_De_Roupas
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txbPass_TextChanged(object sender, EventArgs e)
+        {
+            txbPass.Text = new string('*', txbPass.Text.Length);
         }
 
 

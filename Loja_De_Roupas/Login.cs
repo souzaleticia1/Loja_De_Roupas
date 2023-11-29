@@ -20,9 +20,10 @@ namespace Loja_De_Roupas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string hashPassL = Senha.Sha256(txbPassL.Text);
             Usuario user = new Usuario(
                                         Convert.ToDecimal(mtxbCpfL.Text.Replace(".", "").Replace("-", "")),
-                                        txbPassL.Text);
+                                        hashPassL);
             //criar objeto da classe UsuarioDAO
             //chamar o método que verifica se o usuario e a senha existem na tabela
             UsuarioDAO dadosUser = new UsuarioDAO();
@@ -50,6 +51,11 @@ namespace Loja_De_Roupas
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txbPassL_TextChanged(object sender, EventArgs e)
+        {
+            txbPassL.Text = new string('*', txbPassL.Text.Length);
         }
     }
 }

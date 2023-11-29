@@ -17,7 +17,7 @@ namespace Loja_De_Roupas
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //na Program.cs ela chama o Form1.cs e tem que mudar isso para login
-            Application.Run(new Form2());
+            Application.Run(new Login());
             //criar outro método para o usuarioDAO
             //if(dr.HasRows)
             //   retur true;
