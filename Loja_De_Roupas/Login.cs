@@ -30,9 +30,9 @@ namespace Loja_De_Roupas
             if (dadosUser.Login(user))
             {
                 //instanciando objetos da classe Form1 (esses são os comandos para abrir outra tela)
-                Form2 form2 = new Form2();
+                Principal principal = new Principal();
                 //ShowDialog bloqueia tudo que está atras dela, já o Show não bloqueia, então da para clicar na tela de login, por isso estamos usando o ShowDialog
-                form2.ShowDialog();
+                principal.ShowDialog();
             }
             else
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.button1 = new System.Windows.Forms.Button();
             this.txbPassL = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,11 +36,13 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.mtxbCpfL = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(350, 250);
+            this.button1.Location = new System.Drawing.Point(344, 327);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 28);
             this.button1.TabIndex = 3;
@@ -49,7 +52,7 @@
             // 
             // txbPassL
             // 
-            this.txbPassL.Location = new System.Drawing.Point(293, 207);
+            this.txbPassL.Location = new System.Drawing.Point(287, 284);
             this.txbPassL.Name = "txbPassL";
             this.txbPassL.PasswordChar = '*';
             this.txbPassL.Size = new System.Drawing.Size(192, 20);
@@ -60,7 +63,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label1.Location = new System.Drawing.Point(225, 176);
+            this.label1.Location = new System.Drawing.Point(219, 253);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 18);
             this.label1.TabIndex = 3;
@@ -70,7 +73,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label2.Location = new System.Drawing.Point(225, 206);
+            this.label2.Location = new System.Drawing.Point(219, 283);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 18);
             this.label2.TabIndex = 4;
@@ -79,7 +82,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(290, 230);
+            this.linkLabel1.Location = new System.Drawing.Point(284, 307);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 13);
             this.linkLabel1.TabIndex = 2;
@@ -91,7 +94,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(344, 95);
+            this.label3.Location = new System.Drawing.Point(338, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 33);
             this.label3.TabIndex = 6;
@@ -100,11 +103,21 @@
             // 
             // mtxbCpfL
             // 
-            this.mtxbCpfL.Location = new System.Drawing.Point(293, 174);
+            this.mtxbCpfL.Location = new System.Drawing.Point(287, 251);
             this.mtxbCpfL.Mask = "000,000,000-00";
             this.mtxbCpfL.Name = "mtxbCpfL";
             this.mtxbCpfL.Size = new System.Drawing.Size(192, 20);
             this.mtxbCpfL.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(302, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(161, 144);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
@@ -112,6 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.mtxbCpfL);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel1);
@@ -121,6 +135,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Login";
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +150,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox mtxbCpfL;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
