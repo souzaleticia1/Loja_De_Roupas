@@ -116,18 +116,18 @@ namespace Loja_De_Roupas
 
         private void Aparencia_Load(object sender, EventArgs e)
         {
-            //// Carrega o estado do RadioButton ao carregar a tela
-            //if (Properties.Settings.Default.TemaEscuro)
-            //{
-            //    radioButtonTemaEscuro.Checked = true;
-            //}
-            //else
-            //{
-            //    radioButtonTemaClaro.Checked = true;
-            //}
+            // Carrega o estado do RadioButton ao carregar a tela
+            if (Properties.Settings.Default.TemaEscuro)
+            {
+                radioButtonTemaEscuro.Checked = true;
+            }
+            else
+            {
+                radioButtonTemaClaro.Checked = true;
+            }
 
-            //// Atualiza a aparência com base nas configurações de tema
-            //AtualizarAparencia();
+            // Atualiza a aparência com base nas configurações de tema
+            AtualizarAparencia();
         }
     }
 }
