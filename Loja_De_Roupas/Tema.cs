@@ -31,23 +31,298 @@
 //}
 //}
 
-using System;
-using System.IO;
+//using System;
+//using System.Drawing;
+//using System.IO;
+//using System.Windows.Forms;
 
-public static class Tema
+//public static class Tema
+//{
+//private static readonly string caminhoArquivo = "configuracoesTema.txt";
+
+//public static bool TemaEscuro
+//{
+//    get
+//    {
+//        return File.Exists(caminhoArquivo) ? Convert.ToBoolean(File.ReadAllText(caminhoArquivo)) : false;
+//    }
+//    set
+//    {
+//        File.WriteAllText(caminhoArquivo, value.ToString());
+//    }
+//}
+
+using System.Drawing;
+using System.Windows.Forms;
+
+public class Tema : Form
 {
-    private static readonly string caminhoArquivo = "configuracoesTema.txt";
+    protected bool temaEscuro = false;
 
-    public static bool TemaEscuro
+    public Tema()
     {
-        get
+        AtualizarAparencia();
+    }
+
+    public void AtualizarAparencia()
+    {
+        if (temaEscuro)
         {
-            return File.Exists(caminhoArquivo) ? Convert.ToBoolean(File.ReadAllText(caminhoArquivo)) : false;
+            this.BackColor = Color.DarkSlateGray;
+            // Adicione outras configurações de estilo para o tema escuro...
         }
-        set
+        else
         {
-            File.WriteAllText(caminhoArquivo, value.ToString());
+            this.BackColor = SystemColors.Control;
+            // Adicione outras configurações de estilo para o tema claro...
         }
     }
+
+    public void AplicarTemaEscuro()
+    {
+        temaEscuro = true;
+        AtualizarAparencia();
+    }
+
+    public void AplicarTemaClaro()
+    {
+        temaEscuro = false;
+        AtualizarAparencia();
+    }
 }
+
+
+
+//using System;
+//using System.Drawing;
+//using System.Windows.Forms;
+
+//public static class Tema
+//{
+//    private static bool temaEscuro = false;
+
+//    public static bool TemaEscuro
+//    {
+//        get { return temaEscuro; }
+//        set
+//        {
+//            if (temaEscuro != value)
+//            {
+//                temaEscuro = value;
+//                ChangedTheme?.Invoke(null, EventArgs.Empty);
+//            }
+//        }
+//    }
+
+//    public static event EventHandler ChangedTheme;
+
+//    public static void AtualizarAparencia(Form formulario)
+//    {
+//        // Lógica para atualizar a aparência do formulário com base no tema
+//        if (temaEscuro)
+//        {
+//            formulario.BackColor = Color.DarkSlateGray;
+//            // Adicione outros controles e suas propriedades de estilo aqui...
+//        }
+//        else
+//        {
+//            formulario.BackColor = SystemColors.Control;
+//            // Adicione outros controles e suas propriedades de estilo aqui...
+//        }
+//    }
+//}
+
+//using System;
+//using System.Drawing;
+//using System.Windows.Forms;
+
+//public static class Tema
+//{
+//    private static bool temaEscuro = false;
+
+//    public static bool TemaEscuro
+//    {
+//        get { return temaEscuro; }
+//        set
+//        {
+//            if (temaEscuro != value)
+//            {
+//                temaEscuro = value;
+//                OnTemaAlterado(EventArgs.Empty);
+//            }
+//        }
+//    }
+
+//    public static event EventHandler ChangedTheme;
+
+//    private static void OnTemaAlterado(EventArgs e)
+//    {
+//        // Dispara o evento para notificar todos os ouvintes
+//        ChangedTheme?.Invoke(null, e);
+//    }
+
+//    public static void AtualizarAparencia(Form formulario)
+//    {
+//        // Lógica para atualizar a aparência do formulário com base no tema
+//        if (temaEscuro)
+//        {
+//            formulario.BackColor = Color.DarkSlateGray;
+//            // Adicione outros controles e suas propriedades de estilo aqui...
+//        }
+//        else
+//        {
+//            formulario.BackColor = SystemColors.Control;
+//            // Adicione outros controles e suas propriedades de estilo aqui...
+//        }
+//    }
+//}
+
+//using System;
+//using System.Drawing;
+//using System.Windows.Forms;
+
+//public static class Tema
+//{
+//    private static bool temaEscuro = false;
+
+//    public static bool TemaEscuro
+//    {
+//        get { return temaEscuro; }
+//        set
+//        {
+//            if (temaEscuro != value)
+//            {
+//                temaEscuro = value;
+//                OnTemaAlterado(EventArgs.Empty);
+//            }
+//        }
+//    }
+
+//    public static event EventHandler ChangedTheme;
+
+//    private static void OnTemaAlterado(EventArgs e)
+//    {
+//        // Dispara o evento para notificar todos os ouvintes
+//        ChangedTheme?.Invoke(null, e);
+//    }
+
+//    public static void AtualizarAparencia(Form formulario)
+//    {
+//        // Lógica para atualizar a aparência do formulário com base no tema
+//        if (temaEscuro)
+//        {
+//            formulario.BackColor = Color.DarkSlateGray;
+//            // Adicione outros controles e suas propriedades de estilo aqui...
+//        }
+//        else
+//        {
+//            formulario.BackColor = SystemColors.Control;
+//            // Adicione outros controles e suas propriedades de estilo aqui...
+//        }
+//    }
+//}
+
+//using System;
+//using System.Drawing;
+//using System.Windows.Forms;
+
+//public class Tema : Form
+//{
+//    private static bool temaEscuro = false;
+
+//    public Tema()
+//    {
+//        AtualizarAparencia();
+//    }
+
+//    public void AtualizarAparencia()
+//    {
+//        if (temaEscuro)
+//        {
+//            this.BackColor = Color.DarkSlateGray;
+//            // Adicione outras configurações de estilo para o tema escuro...
+//        }
+//        else
+//        {
+//            this.BackColor = SystemColors.Control;
+//            // Adicione outras configurações de estilo para o tema claro...
+//        }
+//    }
+
+//    public static void AplicarTemaEscuro()
+//    {
+//        temaEscuro = true;
+//        AtualizarAparenciaGlobal();
+//    }
+
+//    public static void AplicarTemaClaro()
+//    {
+//        temaEscuro = false;
+//        AtualizarAparenciaGlobal();
+//    }
+
+//    private static void AtualizarAparenciaGlobal()
+//    {
+//        foreach (Form formularioAberto in Application.OpenForms)
+//        {
+//            if (formularioAberto is Tema)
+//            {
+//                ((Tema)formularioAberto).AtualizarAparencia();
+//            }
+//        }
+//    }
+//}
+
+//using System;
+//using System.Drawing;
+//using System.Windows.Forms;
+
+//public class Tema : Form
+//{
+//    private static bool temaEscuro = false;
+
+//    // Evento que será acionado quando o tema for alterado
+//    public static event EventHandler TemaAlterado;
+
+//    public Tema()
+//    {
+//        AtualizarAparencia();
+//    }
+
+//    public void AtualizarAparencia()
+//    {
+//        if (temaEscuro)
+//        {
+//            this.BackColor = Color.DarkSlateGray;
+//            // Adicione outras configurações de estilo para o tema escuro...
+//        }
+//        else
+//        {
+//            this.BackColor = SystemColors.Control;
+//            // Adicione outras configurações de estilo para o tema claro...
+//        }
+//    }
+
+//    public static void AplicarTemaEscuro()
+//    {
+//        temaEscuro = true;
+//        // Dispara o evento para notificar os formulários sobre a mudança de tema
+//        OnTemaAlterado();
+//    }
+
+//    public static void AplicarTemaClaro()
+//    {
+//        temaEscuro = false;
+//        // Dispara o evento para notificar os formulários sobre a mudança de tema
+//        OnTemaAlterado();
+//    }
+
+//    private static void OnTemaAlterado()
+//    {
+//        // Dispara o evento para notificar os formulários sobre a mudança de tema
+//        TemaAlterado?.Invoke(null, EventArgs.Empty);
+//    }
+//}
+
+
 
