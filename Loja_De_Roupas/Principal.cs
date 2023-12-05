@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuaLojaDeRoupas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,6 +52,14 @@ namespace Loja_De_Roupas
             Aparencia aparencia = new Aparencia();
             //ShowDialog bloqueia tudo que está atras dela, já o Show não bloqueia, então da para clicar na tela de login, por isso estamos usando o ShowDialog
             aparencia.ShowDialog();
+        }
+
+        private void calendárioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //instanciando objetos da classe Form1 (esses são os comandos para abrir outra tela)
+            Calendario calendario = new Calendario();
+            //ShowDialog bloqueia tudo que está atras dela, já o Show não bloqueia, então da para clicar na tela de login, por isso estamos usando o ShowDialog
+            calendario.ShowDialog();
         }
     }
 }

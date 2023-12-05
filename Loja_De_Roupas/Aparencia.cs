@@ -12,68 +12,120 @@ namespace Loja_De_Roupas
 {
     public partial class Aparencia : Form
     {
-        private Tema tema;  // Mantenha uma única instância de Tema
+        //private Tema tema;  // Mantenha uma única instância de Tema
         public Aparencia()
         {
             InitializeComponent();
-            tema = new Tema();
-            tema.AtualizarAparencia(); // Certifique-se de que o tema é inicializado corretamente
+            //tema = new Tema();
+            /*tema.AtualizarAparencia();*/ /*// Certifique-se de que o tema é inicializado corretamente*/
             //InicializarTema();
         }
 
+        Tema tema = new Tema();
+
         private void InicializarTema()
         {
-            AtualizarAparencia();
-        }
+            //tema.AtualizarAparencia();
 
-        public void AtualizarAparencia()
-        {
-            //if (temaEscuro)
+            // Adicione os eventos CheckedChanged aos RadioButtons, se existirem
+            //if (radioButtonTemaClaro != null && radioButtonTemaEscuro != null)
             //{
-            //    this.BackColor = Color.DarkSlateGray;
-            //    // Adicione outras configurações de estilo para o tema escuro...
+            //    radioButtonTemaClaro.CheckedChanged += RadioButtonTema_CheckedChanged;
+            //    radioButtonTemaEscuro.CheckedChanged += RadioButtonTema_CheckedChanged;
             //}
-            //else
+            //void RadioButtonTema_CheckedChanged(object sender, EventArgs e)
             //{
-            //    this.BackColor = SystemColors.Control;
-            //    // Adicione outras configurações de estilo para o tema claro...
-            //}
-            // Defina as cores para o tema claro
-            Color colorBackClaro = Color.White;
-            Color colorTextClaro = Color.Black;
-
-            // Defina as cores para o tema escuro
-            Color colorBackEscuro = Color.FromArgb(45, 45, 48);
-            Color colorTextEscuro = Color.White;
-
-            // void AlterTheme(bool themeEscuro)
-            //{
-            //    // Altere as cores com base no tema escolhido
-            //    this.BackColor = themeEscuro ? colorBackEscuro : colorBackClaro;
-            //    this.ForeColor = themeEscuro ? colorTextEscuro : colorTextClaro;
-
-            //    // Itere através de todos os controles no formulário
-            //    foreach (Control control in this.Controls)
+            //    // Verifica qual RadioButton está marcado e atualiza o tema conforme necessário
+            //    if (radioButtonTemaClaro.Checked)
             //    {
-            //        // Aplique o tema aos controles recursivamente (se necessário)
-            //        ApllyThemeToControls(control, themeEscuro);
+            //        tema.AtualizarAparencia(false);
+            //    }
+            //    else if (radioButtonTemaEscuro.Checked)
+            //    {
+            //        tema.AtualizarAparencia(true);
             //    }
             //}
 
-            void ApllyThemeToControls(Control control, bool themeEscuro)
-            {
-                // Altere as cores dos controles
-                control.BackColor = themeEscuro ? colorBackEscuro : colorBackClaro;
-                control.ForeColor = themeEscuro ? colorTextEscuro : colorTextClaro;
 
-                // Itere através dos controles filhos recursivamente
-                foreach (Control control2 in control.Controls)
-                {
-                    ApllyThemeToControls(control2, themeEscuro);
-                }
-            }
-        
+            // Atualize a aparência inicial
+            //AtualizarAparencia();
+
+
+
+            // Adicione os eventos CheckedChanged aos RadioButtons
+            radioButtonTemaClaro.CheckedChanged += RadioButtonTema_CheckedChanged;
+            radioButtonTemaEscuro.CheckedChanged += RadioButtonTema_CheckedChanged;
+
+            // Atualize a aparência inicial
+            AtualizarAparencia();
         }
+        private void RadioButtonTema_CheckedChanged(object sender, EventArgs e)
+        {
+            // Verifica qual RadioButton está marcado e atualiza o tema conforme necessário
+            if (radioButtonTemaClaro.Checked)
+            {
+                tema.AtualizarAparencia(false);
+            }
+            else if (radioButtonTemaEscuro.Checked)
+            {
+                tema.AtualizarAparencia(true);
+            }
+        }
+
+        private void AtualizarAparencia()
+        {
+            // Chame o método AtualizarAparencia da instância Tema
+            tema.AtualizarAparencia(radioButtonTemaEscuro.Checked);
+        }
+
+        //public void AtualizarAparencia()
+        //{
+        //    if (temaEscuro)
+        //    {
+        //        this.BackColor = Color.DarkSlateGray;
+        //        // Adicione outras configurações de estilo para o tema escuro...
+        //    }
+        //    else
+        //    {
+        //        this.BackColor = SystemColors.Control;
+        //        // Adicione outras configurações de estilo para o tema claro...
+        //    }
+        //    // Defina as cores para o tema claro
+        //    Color colorBackClaro = Color.White;
+        //    Color colorTextClaro = Color.Black;
+
+        //    // Defina as cores para o tema escuro
+        //    Color colorBackEscuro = Color.FromArgb(45, 45, 48);
+        //    Color colorTextEscuro = Color.White;
+
+        //    void AlterTheme(bool themeEscuro)
+        //    {
+        //        // Altere as cores com base no tema escolhido
+        //        this.BackColor = themeEscuro ? colorBackEscuro : colorBackClaro;
+        //        this.ForeColor = themeEscuro ? colorTextEscuro : colorTextClaro;
+
+        //        // Itere através de todos os controles no formulário
+        //        foreach (Control control in this.Controls)
+        //        {
+        //            // Aplique o tema aos controles recursivamente (se necessário)
+        //            ApllyThemeToControls(control, themeEscuro);
+        //        }
+        //    }
+
+        //    void ApllyThemeToControls(Control control, bool themeEscuro)
+        //    {
+        //        // Altere as cores dos controles
+        //        control.BackColor = themeEscuro ? colorBackEscuro : colorBackClaro;
+        //        control.ForeColor = themeEscuro ? colorTextEscuro : colorTextClaro;
+
+        //        // Itere através dos controles filhos recursivamente
+        //        foreach (Control control2 in control.Controls)
+        //        {
+        //            ApllyThemeToControls(control2, themeEscuro);
+        //        }
+        //    }
+
+        //}
         //private void AtualizarAparencia()
         //{
         //    Tema.AplicarTemaEscuro(); // Pode ser Tema.AplicarTemaClaro() conforme necessário
@@ -203,7 +255,11 @@ namespace Loja_De_Roupas
             //    AtualizarAparencia();
             //}
 
-            tema.AtualizarAparencia();
+            //tema.AtualizarAparencia();
+
+            //tema.AtualizarAparencia();
+
+            tema.AtualizarAparencia(false);
 
 
         }
@@ -219,7 +275,11 @@ namespace Loja_De_Roupas
             //Tema tema = new Tema();
             //tema.AplicarTemaEscuro();
 
-            tema.AtualizarAparencia();
+            //tema.AtualizarAparencia();
+
+            //tema.AtualizarAparencia();
+
+            tema.AtualizarAparencia(true);
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

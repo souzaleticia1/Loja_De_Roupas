@@ -32,9 +32,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lojaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endereçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.geralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endereçoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.calendárioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.geralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,13 @@
             this.endereçoToolStripMenuItem.Text = "Configurações";
             this.endereçoToolStripMenuItem.Click += new System.EventHandler(this.endereçoToolStripMenuItem_Click);
             // 
+            // geralToolStripMenuItem
+            // 
+            this.geralToolStripMenuItem.Name = "geralToolStripMenuItem";
+            this.geralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.geralToolStripMenuItem.Text = "Aparência";
+            this.geralToolStripMenuItem.Click += new System.EventHandler(this.geralToolStripMenuItem_Click);
+            // 
             // endereçoToolStripMenuItem1
             // 
             this.endereçoToolStripMenuItem1.Name = "endereçoToolStripMenuItem1";
@@ -88,13 +95,7 @@
             this.calendárioToolStripMenuItem1.Name = "calendárioToolStripMenuItem1";
             this.calendárioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.calendárioToolStripMenuItem1.Text = "Calendário";
-            // 
-            // geralToolStripMenuItem
-            // 
-            this.geralToolStripMenuItem.Name = "geralToolStripMenuItem";
-            this.geralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.geralToolStripMenuItem.Text = "Aparência";
-            this.geralToolStripMenuItem.Click += new System.EventHandler(this.geralToolStripMenuItem_Click);
+            this.calendárioToolStripMenuItem1.Click += new System.EventHandler(this.calendárioToolStripMenuItem1_Click);
             // 
             // Principal
             // 

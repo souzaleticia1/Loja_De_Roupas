@@ -52,6 +52,12 @@
     <Compile Include="Aparencia.Designer.cs">
       <DependentUpon>Aparencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendario.Designer.cs">
+      <DependentUpon>Calendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="EnderecoDAO.cs" />
@@ -89,6 +95,9 @@
     <Compile Include="UsuarioDAO.cs" />
     <EmbeddedResource Include="Aparencia.resx">
       <DependentUpon>Aparencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calendario.resx">
+      <DependentUpon>Calendario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
