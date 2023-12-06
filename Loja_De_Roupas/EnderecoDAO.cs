@@ -112,18 +112,18 @@ namespace Loja_De_Roupas
             Estado = @Estado,
             Cidade        = @Cidade, 
             Bairro  = @Bairro,  
-            Rua   = @Rua
+            Rua   = @Rua,
             Numero   = @Numero
             WHERE ID   = @id";
 
             //idêntico ao do botão insert
             sqlCommand.Parameters.AddWithValue("@ID", address.Id);
-            sqlCommand.Parameters.AddWithValue("@Nome", address.Cep);
-            sqlCommand.Parameters.AddWithValue("@Prontuario", address.Estado);
-            sqlCommand.Parameters.AddWithValue("@Telefone", address.Cidade);
-            sqlCommand.Parameters.AddWithValue("@CPF", address.Bairro);
-            sqlCommand.Parameters.AddWithValue("@senha", address.Rua);
-            sqlCommand.Parameters.AddWithValue("@senha", address.Numero);
+            sqlCommand.Parameters.AddWithValue("@CEP", address.Cep);
+            sqlCommand.Parameters.AddWithValue("@Estado", address.Estado);
+            sqlCommand.Parameters.AddWithValue("@Cidade", address.Cidade);
+            sqlCommand.Parameters.AddWithValue("@Bairro", address.Bairro);
+            sqlCommand.Parameters.AddWithValue("@Rua", address.Rua);
+            sqlCommand.Parameters.AddWithValue("@Numero", address.Numero);
 
             sqlCommand.ExecuteNonQuery();
         }

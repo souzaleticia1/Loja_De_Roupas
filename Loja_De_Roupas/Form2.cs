@@ -99,6 +99,18 @@ namespace Loja_De_Roupas
             //atualizando ListView
             UpdateListView();
         }
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            int index;
+            index = listView1.FocusedItem.Index;
+            id = int.Parse(listView1.Items[index].SubItems[0].Text);
+            mtxbCEP.Text = listView1.Items[index].SubItems[1].Text;
+            txbEstado.Text = listView1.Items[index].SubItems[2].Text;
+            txbCidade.Text = listView1.Items[index].SubItems[3].Text;
+            txbBairro.Text = listView1.Items[index].SubItems[4].Text;
+            txbRua.Text = listView1.Items[index].SubItems[5].Text;
+            txbNumero.Text = listView1.Items[index].SubItems[6].Text;
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -171,18 +183,6 @@ namespace Loja_De_Roupas
 
         }
 
-        private void listView1_DoubleClick(object sender, EventArgs e)
-        {
-            int index;
-            index = listView1.FocusedItem.Index;
-            id = int.Parse(listView1.Items[index].SubItems[0].Text);
-            mtxbCEP.Text = listView1.Items[index].SubItems[1].Text;
-            txbEstado.Text = listView1.Items[index].SubItems[2].Text;
-            txbCidade.Text = listView1.Items[index].SubItems[3].Text;
-            txbBairro.Text = listView1.Items[index].SubItems[4].Text;
-            txbRua.Text = listView1.Items[index].SubItems[5].Text;
-            txbNumero.Text = listView1.Items[index].SubItems[6].Text;
-        }
 
         private void Form2_Load(object sender, EventArgs e)
         {
